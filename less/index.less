@@ -4,56 +4,247 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
+//IT BEGINS HERE
+
+//variables
+
+@displayText: "Yatra One", sans-serif;
+@accentText: "Special Elite", sans-serif;
+@highlightColor: #007db5;
+@mainColor: #00b593;
+@anchorColor: #0022b5;
+
+//mixins
+.wrapper() {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+.ib() {
+  display: inline-block;
+}
+
+//styles
+
+.main {
+  border: solid black 1px;
+  background-color: @mainColor;
+  .wrapper;
+}
+
+header {
+  nav {
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0 5px 40%;
+    background-color: @highlightColor;
+    border-bottom: solid @anchorColor 3px;
+    @media screen and (max-width: 800px) {
+      padding: 0 5px;
+    }
+    a {
+      font-family: @accentText;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 1px @anchorColor;
+      margin-left: 10px;
+
+      @media screen and (max-width: 800px) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+.topSection {
+  display: flex;
+  border-bottom: solid @anchorColor 3px;
+  background-image: url("../images/web.png");
+  background-position: right bottom;
+  background-size: cover;
+  z-index: 1;
+
+  img {
+    width: 30%;
+    max-width: 350px;
+    align-self: flex-start;
+    display: inline-block;
+    border: solid black 2px;
+    margin: 25px 0 25px 25px;
+    border-radius: 10%;
+  }
+
+  .headerHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%;
+    margin: 25px 0 0 7%;
+
+    @media screen and (max-width: 800px) {
+      margin: 25px 0 0 2%;
+    }
+
+    h1 {
+      .ib;
+      font-family: @displayText;
+      font-size: 3.5rem;
+      color: white;
+      vertical-align: top;
+      text-shadow: 3px 3px 2px @anchorColor;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      .ib;
+      font-family: @accentText;
+      font-size: 2.5rem;
+      color: @anchorColor;
+      text-shadow: 1px 1px 1px white;
+      margin-left: 2%;
+    }
+  }
+}
+
+//STILL BEGINNING
